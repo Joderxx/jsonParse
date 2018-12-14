@@ -1,0 +1,61 @@
+{
+	"logName": "精灵变化日志",
+	"shellName": "skinList",
+	"head": [1,2,3],
+	"param": [
+		{
+			"name": "skinId",
+			"type": "string",
+			"html": "select",
+			"parse": "@abc({skinId})"
+		}
+	],
+	
+	"receive": [
+		{
+			"name": "skinId",
+			"type": "string"
+		},
+		{
+			"name": "reward",
+			"type": "array",
+			"elementType": "reward"
+		}
+	],
+	
+	"return": [
+		{
+			"name": "reward",
+			"source": "reward",
+			"parse" : "@func@()"
+		}
+	],
+	
+	"object": [
+	{
+			"name": "consume",
+			"fields": [
+				{
+					"name": "type",
+					"type": "string"
+				},
+				{
+					"name": "num",
+					"type": "int",
+					"isnull": false
+				}
+			
+			],
+			"toString": "{@abc({type})@.name} * {num}"
+		}
+	],
+	
+	"mapper": [
+		{
+			"name": "abc",
+			"mapFile": "{file}",
+			"mapName": "id",
+			"return": ["name","id"]
+		}
+	]
+}

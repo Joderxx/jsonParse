@@ -1,0 +1,60 @@
+{
+  "logName": "精灵变化日志",
+  "shellName": "skinList",
+  "head": [1,2,3],
+  "param": [
+    {
+      "name": "skinId",
+      "html": "select",
+      "mapObjectKey": "abc"
+    }
+  ],
+  "receive": [
+    {
+      "name": "skinId"
+    },
+    {
+      "name": "time"
+    },
+    {
+      "name": "reward",
+      "type": "array",
+      "mapObject": "def"
+    }
+  ],
+
+  "return": [
+    {
+      "name": "skinId",
+      "formatName": "精灵ID"
+    },
+    {
+      "name": "time",
+      "format": "yyyy-MM-dd"
+    },
+    {
+      "name": "skinName",
+      "key": "skinId",
+      "source": "abc.name"
+    },
+    {
+      "name": "reward"
+    }
+  ],
+
+  "object": [
+    {
+      "name": "abc",
+      "sourceFile": "",
+      "fields": ["id","name"],
+      "toString": "{name}({id})"
+    },
+
+    {
+      "name": "def",
+      "fields": ["id","name"],
+      "toString": "{name}({id})"
+    }
+  ]
+
+}
